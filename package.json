@@ -1,6 +1,6 @@
 {
   "name": "scratch-storage",
-  "version": "0.0.0-development",
+  "version": "1.2.1",
   "description": "Load and store project and asset files for Scratch 3.0",
   "license": "BSD-3-Clause",
   "homepage": "https://github.com/LLK/scratch-storage#readme",
@@ -26,6 +26,7 @@
   "dependencies": {
     "arraybuffer-loader": "^1.0.3",
     "base64-js": "1.3.0",
+    "firebase": "^5.5.7",
     "js-md5": "0.7.3",
     "minilog": "3.1.0",
     "nets": "3.2.0",
@@ -47,11 +48,11 @@
     "file-loader": "2.0.0",
     "husky": "1.1.2",
     "json": "^9.0.4",
-    "semantic-release": "^15.10.5",
+    "semantic-release": "^15.10.7",
     "tap": "12.0.1",
     "travis-after-all": "^1.4.4",
     "uglifyjs-webpack-plugin": "^2.0.1",
-    "webpack": "^4.8.0",
+    "webpack": "^4.24.0",
     "webpack-cli": "^3.1.1"
   },
   "config": {
