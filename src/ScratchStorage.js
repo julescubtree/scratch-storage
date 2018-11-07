@@ -3,8 +3,6 @@ const log = require('./log');
 const BuiltinHelper = require('./BuiltinHelper');
 const WebHelper = require('./WebHelper');
 
-const FirebaseHelper = require('./FirebaseHelper');
-
 const _Asset = require('./Asset');
 const _AssetType = require('./AssetType');
 const _DataFormat = require('./DataFormat');
@@ -17,13 +15,7 @@ class ScratchStorage {
         this.webHelper = new WebHelper(this);
         this.builtinHelper.registerDefaultAssets(this);
 
-        this.firebaseHelper = new FirebaseHelper(this);
-
         this._helpers = [
-            {
-                helper: this.firebaseHelper,
-                priority: 101
-            },
             {
                 helper: this.builtinHelper,
                 priority: 100
@@ -239,13 +231,7 @@ class ScratchStorage {
      * @return {Promise.<object>} A promise for asset metadata
      */
     store (assetType, dataFormat, data, assetId) {
-        console.log("ScratchStorage.store called");
-        console.log(assetType);
-        console.log(dataFormat);
-        console.log(data);
-        console.log(assetId);
         dataFormat = dataFormat || assetType.runtimeFormat;
-        /* //
         return new Promise(
             (resolve, reject) =>
                 this.webHelper.store(assetType, dataFormat, data, assetId)
@@ -255,15 +241,6 @@ class ScratchStorage {
                     })
                     .catch(error => reject(error))
         );
-        // */
-        //* //
-        return this.firebaseHelper.store(assetType, dataFormat, data, assetId)
-            .then(() => {
-                this.builtinHelper._store(assetType, dataFormat, data, assetId);
-                return Promise.resolve(assetId);
-            })
-            .catch(error => Promise.reject(error));
-        // */
     }
 }
 
